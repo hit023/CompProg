@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	int c=t;
+	int ar[t];
+	set<int> s;
+	//int ans=0;
+	while(t--)
+	{
+		int fid;cin>>fid;
+		ar[t]=fid;
+		int nof;cin>>nof;
+		for(int i=0;i<nof;i++)
+		{
+			int h;
+			cin>>h;
+			s.insert(h);
+		}
+	}
+	for(int i=0;i<c;i++)
+	{
+	    //cout<<"ar[i]"<<ar[i]<<endl;
+	    s.erase(ar[i]);
+	}
+	cout<<s.size()<<endl;
+	return 0;
+}
