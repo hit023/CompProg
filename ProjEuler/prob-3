@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<unsigned int> primes;
+int boo[775147]={};
+void seive()
+{
+    for(int i=2;i<=881;i++)
+    {
+        if(boo[i]==0)
+        {
+            for(int j=i*i;j<=775147;j=j+i)
+            {
+                boo[j]=1;
+            }
+        }
+    }
+    for(int i=2;i<=775147;i++)
+    {
+        if(boo[i]==0)
+        {
+            primes.push_back(i);
+        }
+    }
+}
+
+int main()
+{
+   seive();
+   unsigned long n=600851475143;
+   unsigned long temp=n;
+   vector<unsigned int>::const_iterator it=primes.begin();
+   unsigned long max=0;
+   for(it=primes.begin();it!=primes.end();it++)
+   {
+       if(n%(*it)==0)
+       {
+           if((*it)>max)
+           {
+               max=*it;
+           }
+           while(n>1&&(n%(*it)==0))
+            {
+                n=n/(*it);
+            }
+       }
+   }
+   if(n>1)
+   {
+       cout<<temp<<endl;
+       return 0;
+   }
+   cout<<max<<endl;
+   return 0;
+}
+
