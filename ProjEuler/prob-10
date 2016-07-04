@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>prime;
+const int c=2000000;
+int p[c]={0};
+void sieve()
+{
+    for(int i=2;i*i<c;i++)
+    {
+        if(p[i]==0)
+        {
+            for(int j=i*i;j<c;j+=i)
+            {
+                p[j]=1;
+            }
+        }
+    }
+    for(int i=2;i<c;i++)
+    {
+        if(p[i]==0)
+          prime.push_back(i);
+    }
+}
+
+int main()
+{
+    sieve();
+    unsigned long long init=0; 
+    cout<<accumulate(prime.begin(),prime.end(),init)<<endl;
+}
