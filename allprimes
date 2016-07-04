@@ -1,0 +1,23 @@
+//all primes till 1000000.
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>prime;
+int p[1000000]={0};
+void sieve()
+{
+    for(int i=2;i*i<1000000;i++)
+    {
+        if(p[i]==0)
+        {
+            for(int j=i*i;j<1000000;j+=i)
+            {
+                p[j]=1;
+            }
+        }
+    }
+    for(int i=2;i<1000000;i++)
+    {
+        if(p[i]==0)
+          prime.push_back(i);
+    }
+}
