@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> prime;
+int p[200000]={0};
+void sieve()
+{
+    for(int i=2;i*i<200000;i++)
+    {
+        if(p[i]==0)
+        {
+            for(int j=i*i;j<200000;j+=i)
+            {
+                p[j]=1;
+            }
+        }
+    }
+    for(int i=2;i<200000;i++)
+    {
+        if(p[i]==0)
+          prime.push_back(i);
+    }
+}
+
+int main()
+{
+    sieve();
+    cout<<prime[10000]<<endl;
+    return 0;
+}
