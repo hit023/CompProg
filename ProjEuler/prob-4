@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int isPalin(int n)
+{
+    int temp=n;
+    int rev=0;
+    while(n>0)
+    {
+        rev=(rev*10)+(n%10);
+        n=n/10;
+    }
+    if(temp==rev)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int hasThreeDigFact(double n)
+{
+    for(int i=800;i<=1000;i++)
+    {
+        //cout<< (n/i) <<endl;
+        //cout<<"i= "<< i<<endl;
+        if((n/i)==floor((n/i)))
+        {
+            int q=static_cast<int>(n/i);
+            if((q/1000)==0)
+                return 1; 
+        }
+    }
+    return 0;
+}
+
+int main()
+{
+    for(int i=1000000;i>=1;i--)
+    {
+        if(isPalin(i))
+        {
+            if(hasThreeDigFact(i))
+            {
+                cout<<i<<endl;
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
