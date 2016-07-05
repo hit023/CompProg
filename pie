@@ -1,0 +1,109 @@
+***********************MY SOLUTION***********************(gives WA; when free, try to find bug!)********************
+#include <bits/stdc++.h>
+#define PI 3.14159265358979323846264338327950
+#define d double
+using namespace std;
+
+int main()
+{
+	int t;cin>>t;
+	while(t--)
+	{
+		int pies,friends;cin>>pies>>friends;
+		vector<int> r(pies);
+		vector<d> v(pies);
+		for(int i=0;i<pies;i++)
+		{
+			cin>>r[i];
+			v[i]=PI*r[i]*r[i];
+		}
+		sort(r.begin(),r.end());
+		sort(v.begin(),v.end());
+	//	d total=0;
+	//	accumulate(v.begin(),v.end(),total);
+	//	total=round(total*10000)/10000;
+		d l=0;
+		d h=v[pies-1];
+		//d ans=0;
+		while((h-l) >= 1e-6) //1e-6 because double can stre upto 15 digs. NOw if the number is of billions, then at least precision of 6 places can be achieved!
+		{
+			d mid=l+(h-l)/2;
+			int f=0;
+			//d sum=0;
+			//d vol=round(10000*(PI*mid*mid))/10000;
+			for(int i=0;i<pies;i++)
+			{
+				f=f+static_cast<int>(v[i]/mid); //instead of checking if the absolute difference is 10^-3, use the threshold differenec of 1e-6 between l and h so that we get max. precision. 
+			}
+			if(f>=friends)
+			{
+				l=mid;
+			}
+			else
+			{
+				h=mid;
+			}
+		}
+		cout<<fixed<<setprecision(4)<<l<<endl;
+	}
+	return 0;
+}
+
+submitted solution(copy kiya!)
+#include <bits/stdc++.h>
+using namespace std;
+int n,f;
+long double pi=3.14159265358979323846264338327950;
+int func(long double num,long double array[])
+{
+    int fr=0;
+    if (num==0)
+        return 0;
+    for (int i=0; i<n; i++)
+        fr+=(int)(array[i]/num);
+    if (fr>=f)
+        return 1;
+    else
+        return 0;
+}
+long double bs(long double array[])
+{
+    long double ini=0,last=array[n-1],max=0.0;
+    while (last - ini >= 1e-6)
+    {
+        //printf("%.2Lf %.2Lf\n",ini,last);
+        long double mid=(ini+last)/2;
+        if (func(mid,array)==1)
+        {
+            /*if (max<mid)
+                max=mid;*/
+            ini=mid;
+        }
+        else
+            last=mid;
+    }
+    return ini;
+}
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while (t--)
+    {
+        scanf("%d %d",&n,&f);
+        f++;
+        int array1[n];
+        for (int i=0; i<n; i++)
+            scanf("%d",&array1[i]);
+        long double array[n];
+        sort(array1,array1+n);
+        for (int i=0; i<n; i++)
+            array[i]=array1[i]*array1[i]*pi;
+        /*for (int i=0; i<n; i++)
+            printf("%Lf ",array[i]);
+        cout<<endl;*/
+        long double k=bs(array);
+        printf("%.4Lf\n",k);
+    }
+    return 0;
+}--------------does exactly the same thing as mine!!!!
