@@ -7,4 +7,5 @@
 *checking if xth bit of n is set :: checking if  n&(1<<x) is non zero
 *use acos(-1) for pi if precision is not an issue.
 *to use a floating-point number with a required number of decimal places, use- http://stackoverflow.com/questions/3383817/limit-floating-point-precision
-*
+*apply seive whenever possible. See cube-free numbers.(Cubes, higher powers- works for all!) http://www.spoj.com/problems/CUBEFR/
+*to add one-> -(~x)
