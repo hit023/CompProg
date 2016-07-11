@@ -9,3 +9,6 @@
 *to use a floating-point number with a required number of decimal places, use- http://stackoverflow.com/questions/3383817/limit-floating-point-precision
 *apply seive whenever possible. See cube-free numbers.(Cubes, higher powers- works for all!) http://www.spoj.com/problems/CUBEFR/
 *to add one-> -(~x)
+*to check if the sum of a subarray of a bigger array sums up to a given quantity, always use recursion for a quick sol.See the following
+https://www.codechef.com/problems/MARCHA1
+*
