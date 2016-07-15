@@ -14,3 +14,4 @@ https://www.codechef.com/problems/MARCHA1
 *use scanf and printf if faster i/o than cin and cout is required.
 *use getchar_unlocked only when badly needed.
 *using cin.tie(0) also helps sometimes because one can now break teh tie between cina nd cout and this results in haphazard output because they are not synchronised anymore. Cout won't flush out before a cin is used anymore. So no continuity!
+*efficient code for finding number of divisors and further insight! --- http://codereview.stackexchange.com/questions/39373/project-euler-12-highly-divisible-triangular-number
