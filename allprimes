@@ -9,13 +9,13 @@ void sieve()
     {
         if(p[i]==0)
         {
-            for(int j=i*i;j<=(1000000)/2;j+=i)
+            for(int j=i*i;j<=(1000000);j+=i)
             {
                 p[j]=1;
             }
         }
     }
-    for(int i=2;i<=(1000000)/2;i++)
+    for(int i=2;i<=(1000000);i++)
     {
         if(p[i]==0)
           prime.push_back(i);
